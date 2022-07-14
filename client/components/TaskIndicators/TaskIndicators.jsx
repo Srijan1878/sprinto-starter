@@ -4,7 +4,6 @@ import styles from "./TaskIndicators.module.css";
 function TaskIndicators({ taskData }) {
   //getting task status and applying styles based on that
   const getBackgroundColor = (key) => {
-    console.log(taskData[key])
     return styles[taskData[key]];
   };
 
