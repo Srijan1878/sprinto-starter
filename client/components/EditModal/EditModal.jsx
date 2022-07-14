@@ -15,7 +15,7 @@ function EditModal({ taskData, toggleEditModal, fetchAllTasks }) {
   const [newData, setNewData] = React.useState({});
 
   const handleInputChange = (e) => {
-    if(e.target.name === 'taskDate') validateDate(e.target.value);
+    console.log(e.target.value.toLowerCase())
     setNewData({
       ...newData,
       [e.target.name]:
@@ -32,7 +32,7 @@ function EditModal({ taskData, toggleEditModal, fetchAllTasks }) {
         description: newData.description,
         status: newData.status,
         priority: newData.priority,
-        taskData: newData.taskDate,
+        taskDate: newData.taskDate,
       },
     });
     toggleEditModal();
