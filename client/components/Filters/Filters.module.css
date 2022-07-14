@@ -1,0 +1,24 @@
+.filtersContainer {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin-block: 1rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+}
+.filtersContainer > * {
+  margin-block: 1rem;
+  margin-inline: 0.7rem;
+}
+.filtersContainer label{
+  font-weight: bold;
+}
+.filterBtn {
+  background-color: #3cb3e7;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+  margin-left: auto;
+}

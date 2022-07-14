@@ -1,0 +1,59 @@
+.indicators {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 1rem;
+}
+.indicators > *:first-child {
+  margin-left: 0%;
+}
+.priorityIndicator {
+  background-color: rgb(245, 28, 28);
+  color: white;
+}
+.dateAndPriorityWrapper > h5 {
+  margin-inline: 0.5rem;
+  border-radius: 4px;
+  padding: 4px;
+  font-size: clamp(10px, 1.2vw, 12px);
+}
+.statusIndicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  position: relative;
+  animation: pulse 1s infinite;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.indicators > div {
+  display: flex;
+}
+.low {
+  background-color: rgb(18, 173, 18);
+}
+.medium {
+  background-color: rgb(245, 203, 18);
+}
+.high {
+  background-color: rgb(231, 31, 31);
+}
+.completed {
+  background-color: rgb(85, 226, 92);
+}
+.pending {
+  background-color: orange;
+}
+.ongoing {
+  background-color: rgb(62, 245, 205);
+}

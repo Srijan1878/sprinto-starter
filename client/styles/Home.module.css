@@ -1,0 +1,30 @@
+.container {
+  width: 60vw;
+  min-width: 400px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.todoListContainer {
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  
+  padding: 1rem;
+}
+
+.todoListContainer::-webkit-scrollbar {
+  width: 0px;
+}
+.todoListContainer::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.todoListContainer::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
