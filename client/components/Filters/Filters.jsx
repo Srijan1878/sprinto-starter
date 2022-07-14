@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from "react";
+import React, { memo, useState } from "react";
 import SORT_ORDERS_MAP from "../../constants/sortOrders";
 import Sort from "../Sort/Sort";
 import styles from "./Filters.module.css";

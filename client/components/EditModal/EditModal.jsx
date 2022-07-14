@@ -15,7 +15,6 @@ function EditModal({ taskData, toggleEditModal, fetchAllTasks }) {
   const [newData, setNewData] = React.useState({});
 
   const handleInputChange = (e) => {
-    console.log(e.target.value.toLowerCase())
     setNewData({
       ...newData,
       [e.target.name]:
