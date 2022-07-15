@@ -5,17 +5,16 @@ import { useLazyQuery } from '@apollo/client'
 import Task from '../components/Task/Task'
 import Filters from '../components/Filters/Filters'
 import AddTodo from '../components/AddTodo/AddTodo'
-import Sort from '../components/Sort/Sort'
 
 export default function Home(props) {
-
+  
   const [getTodos, { data }] = useLazyQuery(GET_TASKS, {
     fetchPolicy: 'no-cache'
   })
 
   const getRenderData = () => {
     if (data) return data.getAllTasks
-    return props.data.getAllTasks
+    return props.data?.getAllTasks
   }
 
   return (
@@ -23,20 +22,29 @@ export default function Home(props) {
       <AddTodo fetchAllTasks={getTodos} />
       <Filters fetchFilteredTasks={getTodos} />
       <div className={styles.todoListContainer}>
-        {getRenderData().map(task => <Task key={task.id} taskData={task} fetchAllTasks={getTodos} />)}
+        {getRenderData()?.map(task => <Task key={task.id} taskData={task} fetchAllTasks={getTodos} />)}
       </div>
     </div>
   )
 }
 
 export async function getServerSideProps() {
-  const { data } = await client.query({
-    query: GET_TASKS,
-  });
+  try {
+    const { data } = await client.query({
+      query: GET_TASKS,
+    });
 
-  return {
-    props: {
-      data,
-    },
-  };
+    return {
+      props: {
+        data,
+      },
+    };
+  }
+  catch (error) {
+    return {
+      props: {
+        error: JSON.parse(JSON.stringify(error)),
+      },
+    };
+  }
 }
