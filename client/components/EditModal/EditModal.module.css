@@ -13,7 +13,7 @@
   border-radius: 16px;
   border: 2px solid #333c;
   display: flex;
-  flex-direction: column;  
+  flex-direction: column;
 }
 .editModalContainer h3 {
   margin-block: 1rem;
@@ -46,17 +46,17 @@
 .statusAndPriorityContainer {
   display: flex;
   justify-content: space-between;
-  margin-block: 16px;
+  margin-top: clamp(8px, 2vh, 1rem);
 }
 .statusAndPriorityContainer select {
   cursor: pointer;
 }
-.statusAndPriorityContainer select {
-  font-size: 20px;
+.statusAndPriorityContainer select  {
+  font-size: clamp(16px, 1.8vw, 20px);
 }
-.buttonsContainer{
-    margin-top: auto;
-    margin-left: auto;
+.buttonsContainer {
+  margin-top: auto;
+  margin-left: auto;
 }
 .buttonsContainer > button:first-child {
   color: #e7723c;
@@ -67,18 +67,44 @@
   margin-left: auto;
 }
 .buttonsContainer > button:last-child {
-    background-color: #e7723c;
-    color: white;
-    font-weight: bold;
-    border: none;
-    padding: 8px;
-    border-radius: 8px;
-    margin-left: auto;
-  }
-.dateContainer{
-    margin-inline: auto;
+  background-color: #e7723c;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+  margin-left: auto;
 }
-.dateContainer > h3{
-    text-align: center;
-    margin-top: 0;
+.dateContainer {
+  margin-inline: auto;
+}
+.dateContainer > h3 {
+  text-align: center;
+  margin-top: 0;
+  font-size: clamp(16px, 1.8vw, 20px);
+  opacity: 0.8;
+}
+.dateContainer > input{
+  font-size: clamp(12px, 1.8vw, 16px);
+}
+.statusAndPriorityContainer div {
+  display: flex;
+  flex-direction: column;
+}
+.statusAndPriorityContainer div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.statusAndPriorityContainer label {
+  font-size: clamp(16px, 1.8vw, 20px);
+  font-weight: bold;
+  margin-block: 1rem;
+  opacity: 0.8;
+}
+@media screen and (max-width: 450px) {
+  .editModalContainer {
+    width: 95vw;
+    min-width: none;
+  }
 }

@@ -4,6 +4,7 @@ import styles from "./AddTodo.module.css";
 import { useMutation } from "@apollo/client";
 import taskDefaults from "../../constants/taskDefaults";
 import TASK_STATUS from "../../constants/taskStatus";
+import FilterFields from "../FilterFields/FilterFields";
 
 function AddTodo({ fetchAllTasks }) {
   const [newTaskIaskInputValue, setNewTaskInputValue] = useState({
@@ -53,32 +54,7 @@ function AddTodo({ fetchAllTasks }) {
         <button type="submit">ADD</button>
       </form>
       <div className={styles.filtersContainer}>
-        <label htmlFor="status">
-          status:
-          <select
-            name="status"
-            id="status"
-            className={styles.status}
-            onChange={handleInputChange}
-          >
-            {TASK_STATUS.map((singleStatus, index) => (
-              <option key={index}>{singleStatus}</option>
-            ))}
-          </select>
-        </label>
-        <label htmlFor="priority">
-          priority:
-          <select
-            name="priority"
-            id="priority"
-            className={styles.priority}
-            onChange={handleInputChange}
-          >
-            <option>Low</option>
-            <option>Medium</option>
-            <option>High</option>
-          </select>
-        </label>
+        <FilterFields handleInputChange={handleInputChange}/>        
         <label htmlFor="priority">
           Task Date: 
           <input

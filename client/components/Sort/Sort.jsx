@@ -1,5 +1,4 @@
 import React from "react";
-import SORT_ORDERS_MAP from "../../constants/sortOrders";
 import styles from "./Sort.module.css";
 
 function Sort({ injectFilter }) {
@@ -17,8 +16,8 @@ function Sort({ injectFilter }) {
         Order:
         <select onChange={injectFilter} name={"order"}>
           <option>None</option>
-          <option>Low to High</option>
-          <option>High To Low</option>
+          <option value={'ASC'}>Low to High</option>
+          <option value={'DESC'}>High To Low</option>
         </select>
       </div>
     </>

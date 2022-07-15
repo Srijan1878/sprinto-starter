@@ -1,0 +1,6 @@
+.filter option{
+    text-transform: capitalize;
+}
+.filter select{
+    text-transform: capitalize;
+}

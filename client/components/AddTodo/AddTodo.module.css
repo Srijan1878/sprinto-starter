@@ -44,6 +44,3 @@
 .filtersContainer label {
   opacity: 0.8;
 }
-.status, .status option {
-  text-transform: capitalize;
-}

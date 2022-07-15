@@ -1,16 +1,17 @@
 import { useMutation } from "@apollo/client";
 import React from "react";
-import TASK_STATUS  from "../../constants/taskStatus.js";
+import TASK_STATUS from "../../constants/taskStatus.js";
 import TASK_PRIORITIES from "../../constants/taskPriorities";
 import { EDIT_TODO } from "../../graphql/mutations";
 import styles from "./EditModal.module.css";
 import amendDateFormat from "../../utils/amendDateFormat.js";
+import FilterFields from "../FilterFields/FilterFields.jsx";
 
 function EditModal({ taskData, toggleEditModal, fetchAllTasks }) {
   const [updateTodo] = useMutation(EDIT_TODO, {
     onCompleted: () => {
-        fetchAllTasks();    
-        }
+      fetchAllTasks();
+    },
   });
   const [newData, setNewData] = React.useState({});
 
@@ -38,7 +39,7 @@ function EditModal({ taskData, toggleEditModal, fetchAllTasks }) {
   };
 
   const checkIfSelected = (optionValue, key) => {
-    if(optionValue === taskData[key]){
+    if (optionValue === taskData[key]) {
       return true;
     }
   };
@@ -56,36 +57,22 @@ function EditModal({ taskData, toggleEditModal, fetchAllTasks }) {
           autoFocus={true}
         />
         <div className={styles.statusAndPriorityContainer}>
-          <div className={styles.statusOptionsContainer}>
-            <h3>STATUS</h3>
-            <select
-              onChange={handleInputChange}
-              name={"status"}
-            >
-              {TASK_STATUS.map((singleStatus, index) => (
-                <option key={index} selected={checkIfSelected(singleStatus, 'status')}>
-                  {singleStatus}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className={styles.priorityOptionsContainer}>
-            <h3>PRIORITY</h3>
-            <select
-              onChange={handleInputChange}
-              name={"priority"}
-            >
-              {TASK_PRIORITIES.map((singlePriority, index) => (
-                <option key={index} selected={checkIfSelected(singlePriority, 'priority')}>
-                  {singlePriority}
-                </option>
-              ))}
-            </select>
-          </div>
+          {
+            <FilterFields
+              handleInputChange={handleInputChange}
+              editModal={true}
+              checkIfSelected={checkIfSelected}
+            />
+          }          
         </div>
         <div className={styles.dateContainer}>
           <h3>DATE</h3>
-          <input type="date" name="taskDate" onChange={handleInputChange} defaultValue={amendDateFormat(taskData.taskDate)}/>
+          <input
+            type="date"
+            name="taskDate"
+            onChange={handleInputChange}
+            defaultValue={amendDateFormat(taskData.taskDate)}
+          />
         </div>
         <div className={styles.buttonsContainer}>
           <button onClick={toggleEditModal}>CANCEL</button>
