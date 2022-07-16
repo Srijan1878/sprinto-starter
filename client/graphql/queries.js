@@ -10,5 +10,8 @@ export const GET_TASKS =
             status
             taskDate
             priority
+            user {
+                name
+            }
         }
     }`

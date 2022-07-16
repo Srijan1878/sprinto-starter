@@ -14,18 +14,26 @@ function TaskIndicators({ taskData }) {
 
   return (
     <div className={styles.indicators}>
-      <div
-        className={`${styles.statusIndicator} ${getBackgroundColor("status")}`}
-      ></div>
-      <div className={styles.dateAndPriorityWrapper}>
-        <h5 className={styles.dateIndicator}>{fetchDate()}</h5>
-        <h5
-          className={`${styles.priorityIndicator} ${getBackgroundColor(
-            "priority"
+      <h3>
+        <span>USER: </span>
+        {taskData.user.name}
+      </h3>
+      <div className={styles.indicatorsWrapper}>
+        <div
+          className={`${styles.statusIndicator} ${getBackgroundColor(
+            "status"
           )}`}
-        >
-          {taskData.priority}
-        </h5>
+        ></div>
+        <div className={styles.dateAndPriorityWrapper}>
+          <h5 className={styles.dateIndicator}>{fetchDate()}</h5>
+          <h5
+            className={`${styles.priorityIndicator} ${getBackgroundColor(
+              "priority"
+            )}`}
+          >
+            {taskData.priority}
+          </h5>
+        </div>
       </div>
     </div>
   );

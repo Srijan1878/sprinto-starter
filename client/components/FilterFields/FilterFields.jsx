@@ -3,14 +3,18 @@ import TASK_PRIORITIES from "../../constants/taskPriorities";
 import TASK_STATUS from "../../constants/taskStatus";
 import styles from "./FilterFields.module.css";
 
-function FilterFields({ handleInputChange, editModal = false, checkIfSelected = () => {} }) {
-    
+function FilterFields({
+  handleInputChange,
+  editModal = false,
+  checkIfSelected = () => {},
+  noAllField = false,
+}) {
   return (
     <>
       <div className={styles.filter}>
         <label>Priority: </label>
         <select onChange={handleInputChange} name={"priority"}>
-          <option>All</option>
+          {!noAllField && <option>All</option>}
           {TASK_PRIORITIES.map((taskPriority, index) => (
             <option
               key={index}
@@ -24,7 +28,7 @@ function FilterFields({ handleInputChange, editModal = false, checkIfSelected = 
       <div className={styles.filter}>
         <label>Status: </label>
         <select onChange={handleInputChange} name={"status"}>
-          <option>All</option>
+          {!noAllField && <option>All</option>}
           {TASK_STATUS.map((taskStatus, index) => (
             <option
               key={index}

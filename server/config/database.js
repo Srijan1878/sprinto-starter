@@ -20,4 +20,10 @@ db.authenticate()
         console.error('Unable to connect to the database:', err);
     })
 
+// db.sync({ alter: true }).then(() => {
+//     console.log('Database synced successfully');
+// }).catch((err) => {
+//     console.log(err)
+// })
+
 module.exports = db;

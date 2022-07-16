@@ -47,6 +47,15 @@ function EditModal({ taskData, toggleEditModal, fetchAllTasks }) {
   return (
     <>
       <div className={styles.editModalContainer}>
+        <h3>User: </h3>
+        <input
+          type={"text"}
+          disabled={true}
+          name={"name"}
+          onChange={handleInputChange}
+          className={`${styles.editTaskInput} ${styles.nameInput}`}
+          defaultValue={taskData.user.name}
+        />
         <h3>Task: </h3>
         <input
           type={"text"}
@@ -62,6 +71,7 @@ function EditModal({ taskData, toggleEditModal, fetchAllTasks }) {
               handleInputChange={handleInputChange}
               editModal={true}
               checkIfSelected={checkIfSelected}
+              noAllField
             />
           }          
         </div>

@@ -11,12 +11,14 @@
   flex: 1;
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   flex-wrap: wrap;
-  
+
   padding: 1rem;
 }
-
+.todoListContainer > div:nth-child(3n + 2) {
+  margin-inline: calc(100% / 3 - 100% / 3.2);
+}
 .todoListContainer::-webkit-scrollbar {
   width: 0px;
 }

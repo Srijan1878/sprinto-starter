@@ -10,12 +10,14 @@ const typeDefs = gql`
         createdAt: String
         updatedAt: String
         taskDate: String
+        userId: Int!
+        user: UserRecord
     }
 
     type UserRecord {
         id: Int
         name: String
-        tasks: [TaskRecord] 
+        tasks: [TaskRecord]
     }
 
     enum TaskStatus {
@@ -37,7 +39,7 @@ const typeDefs = gql`
 
     #Mutations
     type Mutation {
-        addTask(description: String, taskDate:String, status: TaskStatus, priority: TaskPriority ): TaskRecord
+        addTask(name: String, description: String, taskDate:String, status: TaskStatus, priority: TaskPriority ): TaskRecord
     }
 
     type Mutation {

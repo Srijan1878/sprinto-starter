@@ -66,6 +66,7 @@
   flex-direction: column;
   font-family: "Montserrat", sans-serif;
 }
+
 .singleTodoMainContainer > input {
   cursor: pointer;
 }

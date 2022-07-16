@@ -3,8 +3,8 @@ import { ADD_TODO } from "../../graphql/mutations";
 import styles from "./AddTodo.module.css";
 import { useMutation } from "@apollo/client";
 import taskDefaults from "../../constants/taskDefaults";
-import TASK_STATUS from "../../constants/taskStatus";
 import FilterFields from "../FilterFields/FilterFields";
+import TASK_INPUT_FIELDS from "../../constants/taskInputFields";
 
 function AddTodo({ fetchAllTasks }) {
   const [newTaskIaskInputValue, setNewTaskInputValue] = useState({
@@ -18,10 +18,9 @@ function AddTodo({ fetchAllTasks }) {
   const handleInputChange = (e) => {
     setNewTaskInputValue({
       ...newTaskIaskInputValue,
-      [e.target.name]:
-        e.target.name !== "description"
-          ? e.target.value.toLowerCase()
-          : e.target.value,
+      [e.target.name]: !TASK_INPUT_FIELDS.includes(e.target.name)
+        ? e.target.value.toLowerCase()
+        : e.target.value,
     });
   };
 
@@ -43,20 +42,31 @@ function AddTodo({ fetchAllTasks }) {
   return (
     <div className={styles.addTaskContainer}>
       <form className={styles.addTodoForm} onSubmit={addNewTask}>
-        <input
-          name="description"
-          type={"text"}
-          className={styles.todoInputField}
-          placeholder={"Add a new task"}
-          onChange={handleInputChange}
-          value={newTaskIaskInputValue?.description}
-        />
+        <div className={styles.inputsContainer}>
+          <input
+            name="name"
+            type={"text"}
+            className={styles.todoInputField}
+            placeholder={"Type user name"}
+            onChange={handleInputChange}
+            value={newTaskIaskInputValue?.name}
+          />
+
+          <input
+            name="description"
+            type={"text"}
+            className={styles.todoInputField}
+            placeholder={"Add a new task"}
+            onChange={handleInputChange}
+            value={newTaskIaskInputValue?.description}
+          />
+        </div>
         <button type="submit">ADD</button>
       </form>
       <div className={styles.filtersContainer}>
-        <FilterFields handleInputChange={handleInputChange}/>        
+        <FilterFields handleInputChange={handleInputChange} />
         <label htmlFor="priority">
-          Task Date: 
+          Task Date:
           <input
             name="taskDate"
             type="date"

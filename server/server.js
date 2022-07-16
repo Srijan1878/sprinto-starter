@@ -7,7 +7,7 @@ require('dotenv').config();
 const app = express()
 
 //database connection
-require('./config/database.js');
+require('./config/database.js')
 
 let apolloServer
 
